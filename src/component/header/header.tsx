@@ -1,4 +1,4 @@
-import React , { useCallback } from 'react';
+import React from 'react';
 import {url} from '../config'
 import { useDispatch} from "react-redux";
 
@@ -17,9 +17,7 @@ const Header:React.FC<IProps> = () => {
           marginLeft:'300px',
           }}>
           <header id="portfolio">
-              <a href="#">
-                <img src={url} style={{width:"65px"}} className="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"/>
-              </a>
+              <img src={url} style={{width:"65px"}} className="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity" alt="img"/>
               <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onClick={() => {dispatch({type:"CHANGE"})}}>
                 <i className="fa fa-bars"></i>
               </span>

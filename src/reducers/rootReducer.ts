@@ -1,16 +1,28 @@
 
-interface Actions{
+export interface Actions{
     type : string,
+    payload : string,
 }
 
-const initialState= {
+export interface IState{
+    navShowState? : boolean,
+    curUrl? : string,
+}
+
+
+const initialState:IState = {
     navShowState : false,
+    curUrl : '/',
 }
 
-const rootReducer = (state = initialState , action:Actions) =>{
+export const changeUrl = (url:string) => ({type:"CHANGE_URL", payload: url});
+
+const rootReducer= ( state = initialState , action:Actions):IState =>{
     switch(action.type){
         case 'CHANGE' :
             return {navShowState : !state.navShowState}
+        case 'CHANGE_URL' :
+            return {curUrl : action.payload}
         default :
             return state;
     }
