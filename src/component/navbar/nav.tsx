@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
-import {url} from '../config'
-import "../../App.css"
+import React, { useCallback } from 'react';
+import {url} from '../config';
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
 interface IProps{
 
     curUrl : string,
-    showtoggle : boolean,
     getUrl(url:string) : void,
-    open() : void, 
 }
 
 interface IState{
-
-    showNav : boolean,
+    navShowState : boolean,
 }
 
-const areEqual = (prevProps:IProps, nextProps:IProps) => {
-    return (prevProps.showtoggle === nextProps.showtoggle && prevProps.curUrl === nextProps.curUrl);
-  }
+const navShowState = (state:IState) => state.navShowState;
 
-const Nav:React.FC<IProps> = ({showtoggle,open , curUrl, getUrl}) => {
+const Nav:React.FC<IProps> = ({curUrl, getUrl}) => {
+
+    const dispatch = useDispatch();
+    const showState = useSelector(navShowState);
+
+
+    console.log(showState);
 
     return(
         <div>
             <nav className="w3-sidebar w3-collapse w3-white w3-animate-left" 
-              style={{zIndex:3, width:"300px" ,display: showtoggle ? 'block' : 'none'}} id="mySidebar">
+              style={{zIndex:3, width:"300px" ,display: showState ? 'block' : 'none'}} id="mySidebar">
             <div className="w3-container">
-                <a href={window.location.href} onClick={()=>open()} className="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+                <button onClick={() => {dispatch({type:"CHANGE"})}} className="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
                 <i className="fa fa-remove"></i>
-                </a>
+                </button>
                 <img src={url} style={{width:"45%"}} className="w3-round"/><br/><br/>
                 <h4><b>PORTFOLIO</b></h4>
                 <p className="w3-text-grey">Template by W3.CSS</p>
@@ -58,9 +59,9 @@ const Nav:React.FC<IProps> = ({showtoggle,open , curUrl, getUrl}) => {
                 <i className="fa fa-github w3-hover-opacity"style={{marginRight : "10px"}}></i>
             </div>
             </nav>
-            <div className="w3-overlay w3-hide-large w3-animate-opacity" onClick={()=>open()} style={{cursor:"pointer", display: showtoggle ? 'block' : 'none' }} title="close side menu" id="myOverlay"/>
+            <div className="w3-overlay w3-hide-large w3-animate-opacity" onClick={() => {dispatch({type:"CHANGE"})}} style={{cursor:"pointer", display: showState ? 'block' : 'none' }} title="close side menu" id="myOverlay"/>
         </div>
     )
 }
 
-export default React.memo(Nav,areEqual);
+export default React.memo(Nav);

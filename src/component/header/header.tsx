@@ -1,17 +1,16 @@
-import React from 'react';
+import React , { useCallback } from 'react';
 import {url} from '../config'
+import { useDispatch} from "react-redux";
 
 interface IProps{
 
-  open() : void, 
 }
 
-interface IState{
+const Header:React.FC<IProps> = () => {
 
-}
+    const dispatch = useDispatch();
 
-const Header:React.FC<IProps> = ({open}) => {
-
+    console.log("header render");
     return(
         <div className="w3-main" 
         style={{
@@ -21,7 +20,7 @@ const Header:React.FC<IProps> = ({open}) => {
               <a href="#">
                 <img src={url} style={{width:"65px"}} className="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"/>
               </a>
-              <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onClick={()=>open()}>
+              <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onClick={() => {dispatch({type:"CHANGE"})}}>
                 <i className="fa fa-bars"></i>
               </span>
               <div className="w3-container">
@@ -41,4 +40,4 @@ const Header:React.FC<IProps> = ({open}) => {
     )
 }
 
-export default Header; 
+export default React.memo(Header); 
