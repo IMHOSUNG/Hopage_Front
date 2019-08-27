@@ -3,14 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Category from "./category";
 import NavHeader from "./navheader";
 import { IState } from '../../reducers/rootReducer'
-
-/*
-const Categorys = [
-    { name : "PORTFOLIO", url : "/" , clicked:true},
-    { name : "ABOUT" , url : "/about", clicked:false},
-    { name : "CONTACT", url : "/contact", clicked:false}
-  ];
-*/  
+import Relatedlink from './relatedlink';
 
 interface IProps{
 
@@ -31,10 +24,7 @@ const Nav:React.FC<IProps> = () => {
               style={{zIndex:3, width:"300px" ,display: showState ? 'block' : 'none'}} id="mySidebar">
             <NavHeader title ={"title"} subtitle={"subtitle"}/>
             <Category/>
-            <div className="w3-panel w3-large">
-                <i className="fa fa-facebook-official w3-hover-opacity" style={{marginRight : "10px"}}></i>
-                <i className="fa fa-github w3-hover-opacity"style={{marginRight : "10px"}}></i>
-            </div>
+            <Relatedlink/>
             </nav>
             <div className="w3-overlay w3-hide-large w3-animate-opacity" onClick={() => {dispatch({type:"CHANGE"})}} style={{cursor:"pointer", display: showState ? 'block' : 'none' }} title="close side menu" id="myOverlay"/>
         </div>

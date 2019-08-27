@@ -1,5 +1,5 @@
 import React from 'react';
-import {url} from '../config'
+import {DefaultImage} from '../../pageConfig';
 
 interface IProps{
 
@@ -25,7 +25,7 @@ const Header:React.FC<IProps> = () => {
                 <h3>BLOG POSTS</h3>
                 <ul className="w3-ul w3-hoverable">
                     <li className="w3-padding-16">
-                    <img src={url} className="w3-left w3-margin-right" style={{width:"50px"}}/>
+                    <img src={DefaultImage} className="w3-left w3-margin-right" style={{width:"50px"}}/>
                     <span className="w3-large">Lorem</span><br/>
                     <span>Sed mattis nunc</span>
                     </li>

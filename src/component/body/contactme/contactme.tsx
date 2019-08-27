@@ -11,7 +11,6 @@ interface IState{
 const Header:React.FC<IProps> = () => {
 
     return(
-        <div className="w3-main" style={{marginLeft:"300px"}}>
         <div className="w3-container w3-padding-large w3-grey">
             <h4 id="contact"><b>Contact Me</b></h4>
             <div className="w3-row-padding w3-center w3-padding-24" style={{margin:0 ,padding:"-16px"}}>
@@ -28,7 +27,6 @@ const Header:React.FC<IProps> = () => {
                 <p>512312311</p>
             </div>
             </div>
-        </div>
         </div>
     )
 }

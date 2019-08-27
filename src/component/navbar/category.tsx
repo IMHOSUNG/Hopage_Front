@@ -2,7 +2,7 @@ import React, {useMemo, useCallback} from 'react';
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { Link } from 'react-router-dom';
 import { IState, changeUrl} from '../../reducers/rootReducer'
-
+import { navCategoryInput } from '../../pageConfig'
 interface IProps{
 
 }
@@ -18,23 +18,18 @@ interface tCategory{
 
 const curUrlSelector = (state:IState) => state.curUrl;
 
-/*const areEqual = (prevProps:Item, nextProps:Item) => {
-    return (prevProps.name === nextProps.name);
-  }
-*/
-
 const CategoryItem:React.FC<Item> = React.memo(({url, name}) =>{
 
     const dispatch = useDispatch();
     const curUrl = useSelector(curUrlSelector,shallowEqual);
     const setUrl = useCallback(()=>dispatch(changeUrl(url)),[dispatch,url]);
 
-    console.log("render item "+name)
+    console.log("render Category item "+name)
     return (
         <Link to={url} style={{ textDecoration: 'none' }}>
-        <button onClick={setUrl} className={`w3-bar-item w3-button w3-padding ${(curUrl===url)&&'w3-text-teal'}`}>
-            <i className="fa fa-th-large fa-fw w3-margin-right"></i>{name}
-        </button> 
+            <button onClick={setUrl} className={`w3-bar-item w3-button w3-padding ${(curUrl===url)&&'w3-text-teal'}`}>
+                <i className="fa fa-th-large fa-fw w3-margin-right"></i>{name}
+            </button> 
         </Link> 
     )
 },)
@@ -56,16 +51,9 @@ const CategoryList:React.FC<tCategory> = ({categorys}) => {
 
 const Category:React.FC<IProps> = () => {
 
-    const Category = [
-        { name : "PORTFOLIO", url : "/"},
-        { name : "ABOUT" , url : "/about"},
-        { name : "CONTACT", url : "/contact"}
-    ];
-
-    console.log("render Category")
     return(
             <div className="w3-bar-block">
-                <CategoryList categorys={Category}/>
+                <CategoryList categorys={navCategoryInput}/>
             </div>
     )
 }
