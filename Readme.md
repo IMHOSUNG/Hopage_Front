@@ -21,7 +21,7 @@
 
 ### 참고 블로그 및 내용 정리
 
-    - react-Router 새로 고침 후 404 오류 수정 (nginx 파일 수정 )
-    [참고 링크]
+    - react-Router 새로 고침 후 404 오류 수정 (nginx 파일 수정 ) [참고 링크](https://gkedge.gitbooks.io/react-router-in-the-real/content/index.html)
 
-    
+### 홈페이지 주소
+    - http://blog.playinfo.co.kr
