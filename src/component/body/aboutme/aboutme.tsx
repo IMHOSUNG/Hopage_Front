@@ -1,5 +1,6 @@
 import React from 'react';
 import CONTACT from '../contactme/contactme'
+import {DefaultImage} from '../../../pageConfig'
 
 interface IProps{
 
@@ -15,7 +16,7 @@ const AboutMe:React.FC<IProps> = () => {
         <div className="w3-main" style={{marginLeft:"300px"}}>
             <div className="w3-row-padding w3-padding-16" id="about">
                 <div className="w3-col m6">
-                <img src="/w3images/avatar_g.jpg" alt="Me" style={{width:"100%"}}/>
+                <img src={DefaultImage} alt="Me" style={{width:"100%"}}/>
                 </div>
             </div>
             <div className="w3-container w3-padding-large" style={{marginBottom:"20px"}}>

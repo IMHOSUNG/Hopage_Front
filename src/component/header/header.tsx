@@ -1,6 +1,6 @@
 import React from 'react';
 import {DefaultImage } from '../../pageConfig'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { IState } from '../../reducers/rootReducer'
 
 interface IProps{
@@ -45,17 +45,13 @@ const Headerbody:React.FC<IBody> = ({title, filterList}) => {
   )
 }
 
-const curUrlSelector = (state:IState) => state.curUrl;
+const curTitleSelector = (state:IState) => state.curTitle;
 
 // TODO : URL 따라 헤더 타이틀이 변하게 할 것
 const Header:React.FC<IProps> = () => {
 
     const dispatch = useDispatch();
-    const curUrl = useSelector<IState,string>(curUrlSelector);
-    /*const curUrl = useMemo(() => {
-      return window.location.pathname
-    }, [curUrl]);*/
-    // const curUrl = useSelector(curUrlSelector,shallowEqual);
+    const curTitle = useSelector<IState,string>(curTitleSelector,shallowEqual);
 
     console.log("header render");
     return(
@@ -68,7 +64,7 @@ const Header:React.FC<IProps> = () => {
               <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onClick={() => {dispatch({type:"CHANGE"})}}>
                 <i className="fa fa-bars"></i>
               </span>
-              <Headerbody title={curUrl}/>
+              <Headerbody title={curTitle}/>
           </header>
         </div>
     )

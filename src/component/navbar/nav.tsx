@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import Category from "./category";
 import NavHeader from "./navheader";
 import { IState } from '../../reducers/rootReducer'
@@ -16,8 +16,7 @@ const Nav:React.FC<IProps> = () => {
 
     const dispatch = useDispatch();
     const showState = useSelector(navStateSelector);
-    const category = useSelector(categoryStateSelector);
-    console.log(category);
+    const category = useSelector(categoryStateSelector,shallowEqual);
 
     return(
         <div>

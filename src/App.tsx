@@ -2,10 +2,8 @@ import React ,{useEffect} from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import {useDispatch} from 'react-redux'
 import Nav from './component/navbar/nav'
-import Header from './component/header/header'
 import {changeUrl} from './reducers/rootReducer'
 import { navCategoryInput } from './pageConfig'
-
 
 const App: React.FC = () => {
 
@@ -14,7 +12,6 @@ const App: React.FC = () => {
   useEffect(()=>{
       const fetchData = async () => {
           let response = window.location.pathname;
-          console.log(response);
           dispatch(changeUrl(response));
       }
       fetchData();
@@ -32,7 +29,6 @@ const App: React.FC = () => {
     <div className="App"> 
             <Router>
               <Nav></Nav>
-              <Header></Header>
               <Switch>
                 {RouteList}
               </Switch>

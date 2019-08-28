@@ -1,8 +1,8 @@
 import React, {useMemo, useCallback} from 'react';
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { useDispatch} from "react-redux";
 import { Link } from 'react-router-dom';
-import { IState, changeUrl} from '../../reducers/rootReducer'
-import { navCategoryInput } from '../../pageConfig'
+import { changeUrl} from '../../reducers/rootReducer'
+
 
 interface IProps{
     Categorys : any,
@@ -22,7 +22,6 @@ const CategoryItem:React.FC<Item> = React.memo(({url, name, clicked}) =>{
 
     const dispatch = useDispatch();
     const setUrl = useCallback(()=>dispatch(changeUrl(url)),[dispatch,url]);
-    //const curUrl = useSelector(curUrlSelector,shallowEqual);
 
     console.log("render Category item "+name +" " +clicked)
     return (
