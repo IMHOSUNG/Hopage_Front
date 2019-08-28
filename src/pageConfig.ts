@@ -8,9 +8,9 @@ export const navTitle = "포트폴리오"
 export const navSubTitle = "포트폴리오 홈페이지 제작 중입니다."
 
 export const navCategoryInput = [
-    { name : "PORTFOLIO", url : "/" , component : Card},
-    { name : "ABOUTME" , url : "/about", component : Me},
-    { name : "TECH", url : "/tech" ,component : TECH},
+    { name : "PORTFOLIO", url : "/" , component : Card , clicked : true},
+    { name : "ABOUTME" , url : "/about", component : Me , clicked : false},
+    { name : "TECH", url : "/tech" ,component : TECH, clicked : false},
 ];
 
 export const navRelatedLink = [

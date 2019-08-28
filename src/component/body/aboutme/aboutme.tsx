@@ -9,8 +9,8 @@ interface IState{
 
 }
 
-const Header:React.FC<IProps> = () => {
-
+const AboutMe:React.FC<IProps> = () => {
+ 
     return(
         <div className="w3-main" style={{marginLeft:"300px"}}>
             <div className="w3-row-padding w3-padding-16" id="about">
@@ -29,4 +29,4 @@ const Header:React.FC<IProps> = () => {
     )
 }
 
-export default Header; 
+export default AboutMe; 

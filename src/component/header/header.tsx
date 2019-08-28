@@ -1,6 +1,6 @@
 import React from 'react';
 import {DefaultImage } from '../../pageConfig'
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IState } from '../../reducers/rootReducer'
 
 interface IProps{
@@ -12,7 +12,7 @@ interface IFilter{
 }
 
 interface IBody{
-   title : string,
+   title : any,
    filterList? : Array<IFilter>
 }
 
@@ -52,6 +52,10 @@ const Header:React.FC<IProps> = () => {
 
     const dispatch = useDispatch();
     const curUrl = useSelector<IState,string>(curUrlSelector);
+    /*const curUrl = useMemo(() => {
+      return window.location.pathname
+    }, [curUrl]);*/
+    // const curUrl = useSelector(curUrlSelector,shallowEqual);
 
     console.log("header render");
     return(
