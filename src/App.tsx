@@ -1,7 +1,7 @@
 import React ,{useEffect} from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import {useDispatch} from 'react-redux'
-import Nav from './component/navbar/nav'
+import Nav from './components/navbar/nav'
 import {changeUrl} from './reducers/rootReducer'
 import { navCategoryInput } from './pageConfig'
 

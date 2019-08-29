@@ -1,8 +1,11 @@
-import MainLayout from './layout/main';
-import AboutLayout from './layout/about';
-import TechLayout from './layout/tech';
+import MainLayout from './layouts/main';
+import AboutLayout from './layouts/about';
+import TechLayout from './layouts/tech';
+
+export const ApiDomain = "https://jsonplaceholder.typicode.com/"
 
 export const DefaultImage = "https://aliceasmartialarts.com/wp-content/uploads/2017/04/default-image.jpg"
+export const NodeJsImage = "https://nodejs.org/static/images/logo.svg"
 
 export const navTitle = "포트폴리오"
 export const navSubTitle = "포트폴리오 홈페이지 제작 중입니다."
