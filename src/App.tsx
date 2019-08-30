@@ -17,8 +17,6 @@ const App: React.FC = () => {
       fetchData();
   })  
 
-
-
   const RouteList = navCategoryInput.map(({component,url})=>
     ( url === '/') 
     ? <Route exact path={url} component={component} key={url}/> 

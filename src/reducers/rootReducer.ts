@@ -1,5 +1,8 @@
 import { navCategoryInput } from '../pageConfig'
 
+const INITIALIZE_INPUT = "auth/INITIALIZE_INPUT"
+const CHANGE_INPUT = "auth/CHANGE_INPUT"
+
 export interface navCategoryItem{
     name : string,
     url : string,
@@ -10,7 +13,13 @@ export interface navCategoryItem{
 
 export interface Actions{
     type : string,
-    payload : string,
+    payload : any,
+}
+
+
+interface Input{
+    name : string,
+    value : string,
 }
 
 export interface IState{
@@ -18,13 +27,23 @@ export interface IState{
     curUrl : string,
     navCategory : Array<navCategoryItem>,
     curTitle : string,
+    curUser : string,
+    form : {
+        name:string , password:string
+    }
 }
+
 
 const initialState:IState = {
     navShowState : false,
     curUrl : "/",
     navCategory : navCategoryInput,
     curTitle : "",
+    curUser : "",
+    form : {
+        name: "",
+        password: ""
+    }
 }
 
 const getTitle = (nav:Array<navCategoryItem>,url:string ) => {
@@ -33,7 +52,19 @@ const getTitle = (nav:Array<navCategoryItem>,url:string ) => {
     return find.layoutTitle
 }
 
+export const initializeInput = () => ({
+    type: INITIALIZE_INPUT
+});
+
+export const changeInput = ({name, value}:Input ) => ({
+    type : CHANGE_INPUT,
+    payload: {
+        name,value
+    }
+})
+
 export const changeUrl = (url:string) => ({type:"CHANGE_URL", payload: url});
+export const changeNav = (showstate:boolean) => ({type:"CHANGE", payload : !showstate})
 
 const rootReducer= ( state = initialState , action:Actions):IState =>{
     switch(action.type){
@@ -53,6 +84,21 @@ const rootReducer= ( state = initialState , action:Actions):IState =>{
                         }
                     ),
                 }
+        case CHANGE_INPUT :
+            return {
+                ...state,
+                form: {
+                    name: "",
+                    password: ""
+                }
+            }
+        case CHANGE_INPUT:
+            let newForm:any = state.form;
+            newForm[action.payload.name] = action.payload.value;
+            return {
+                ...state,
+                form: newForm
+            };
         default :
             return state;
     }

@@ -9,14 +9,14 @@
 - [x] react Component - Header > 2019-08-27부분 완 > (title -부분 reduex 공부 필요[완]) > 2019-08-29 타이틀 변경 완료
 - [x] pageConfig 파일을 통해 nav 변동 용이하게 하기 > 2019-08-27완 (router filter 부분 공부 필요)
 - [x] react Component - Card > 2019-08-30  카드 및 axios 자료 가져오기 완료 > 최적화는 추후 생각할 것 axios 하면서 state가 변경 되서 2번 불림..
-- [ ] react Component - AboutMe
+- [x] react Component - AboutMe
 - [ ] react Component - Card 페이징 되는 부분 자료 구조 및 조사 하여 처리할 것
 - [x] react Redux   > 적용하며 진행 중 > 추후 Redux를 모듈 따라 나누기 필요
-- [ ] react Hook
+- [x] react Hook
 - [x] react TypeScript > 적용하며 진행 중 > 추후 타입 정보 들을 폴더로 묶기 필요  
 - [ ] 최적화 하기
 - [ ] 일렉트론 적용하기
-- [ ] 로그인 기능 추가
+- [ ] 로그인 기능 추가 > 추가 중 firebase 사용 해 볼 것
 - [ ] 서버 사이드 렌더링 적용
 
 ### 참고 블로그 및 내용 정리

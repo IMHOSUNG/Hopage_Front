@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {DefaultImage } from '../../pageConfig'
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { IState } from '../../reducers/rootReducer'
+import { JSXSpreadChild } from '@babel/types';
+import { TargetedEvent } from 'react-native';
 
 interface IProps{
 
@@ -45,6 +47,23 @@ const Headerbody:React.FC<IBody> = ({title, filterList}) => {
   )
 }
 
+const LoginBody:React.FC<IProps> = () => {
+  
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
+    const {name, value} = e.target
+    
+  }
+  return(
+    <>
+      <input 
+        type ="text"
+        name="username"
+
+      />
+    </>
+  )
+}
+
 const curTitleSelector = (state:IState) => state.curTitle;
 
 // TODO : URL 따라 헤더 타이틀이 변하게 할 것
@@ -52,22 +71,21 @@ const Header:React.FC<IProps> = () => {
 
     const dispatch = useDispatch();
     const curTitle = useSelector<IState,string>(curTitleSelector,shallowEqual);
+    const changeUrl = useCallback(() => {dispatch({type:"CHANGE"})},[dispatch])
 
     console.log("header render");
     return(
-        <div className="w3-main" 
-        style={{
-          marginLeft:'300px',
-          }}>
-          <header id="portfolio">
-              <img src={DefaultImage} style={{width:"65px"}} className="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity" alt="img"/>
-              <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onClick={() => {dispatch({type:"CHANGE"})}}>
-                <i className="fa fa-bars"></i>
-              </span>
-              <Headerbody title={curTitle}/>
-          </header>
-        </div>
+        <header id="portfolio">
+            <span className="w3-button w3-right" onClick={changeUrl}>
+              <i className="fa fa-bar-chart-o"></i>
+            </span>
+            <img src={DefaultImage} style={{width:"65px"}} className="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity" alt="img"/>
+            <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onClick={changeUrl}>
+              <i className="fa fa-bars"></i>
+            </span>
+            <Headerbody title={curTitle}/>
+        </header>
     )
 }
 
-export default React.memo(Header); 
+export default Header; 
