@@ -1,4 +1,4 @@
-import { navCategoryInput } from '../pageConfig'
+import { navCategoryInput, PageList } from '../pageConfig'
 
 const INITIALIZE_INPUT = "auth/INITIALIZE_INPUT"
 const CHANGE_INPUT = "auth/CHANGE_INPUT"
@@ -31,6 +31,7 @@ export interface IState{
     form : {
         name:string , password:string
     }
+    CardList : Array<number>
 }
 
 
@@ -43,7 +44,8 @@ const initialState:IState = {
     form : {
         name: "",
         password: ""
-    }
+    },
+    CardList : PageList
 }
 
 const getTitle = (nav:Array<navCategoryItem>,url:string ) => {
@@ -65,6 +67,7 @@ export const changeInput = ({name, value}:Input ) => ({
 
 export const changeUrl = (url:string) => ({type:"CHANGE_URL", payload: url});
 export const changeNav = (showstate:boolean) => ({type:"CHANGE", payload : !showstate})
+export const fetchCard = () => ({type:"INCREASE" })
 
 const rootReducer= ( state = initialState , action:Actions):IState =>{
     switch(action.type){
@@ -84,7 +87,7 @@ const rootReducer= ( state = initialState , action:Actions):IState =>{
                         }
                     ),
                 }
-        case CHANGE_INPUT :
+        case INITIALIZE_INPUT :
             return {
                 ...state,
                 form: {
@@ -98,6 +101,11 @@ const rootReducer= ( state = initialState , action:Actions):IState =>{
             return {
                 ...state,
                 form: newForm
+            };
+        case "INCREASE" :
+            return {
+                ...state,
+                CardList : [...state.CardList , ...Array.from(Array(15).keys(), n => n + state.CardList.length + 1)]
             };
         default :
             return state;

@@ -2,8 +2,6 @@ import React, { useCallback } from 'react';
 import {DefaultImage } from '../../pageConfig'
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { IState } from '../../reducers/rootReducer'
-import { JSXSpreadChild } from '@babel/types';
-import { TargetedEvent } from 'react-native';
 
 interface IProps{
 
@@ -44,23 +42,6 @@ const Headerbody:React.FC<IBody> = ({title, filterList}) => {
      
     </div>
     </div>
-  )
-}
-
-const LoginBody:React.FC<IProps> = () => {
-  
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
-    const {name, value} = e.target
-    
-  }
-  return(
-    <>
-      <input 
-        type ="text"
-        name="username"
-
-      />
-    </>
   )
 }
 

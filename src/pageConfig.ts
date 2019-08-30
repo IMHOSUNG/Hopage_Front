@@ -25,7 +25,7 @@ export const navRelatedLink = [
 export const AboutMeTitle = "소개" 
 export const AboutMeDescription = "소개 설명"
 
-export const PageList = ["1","2","3","4","5","6","7","8"]
+export const PageList = Array.from(Array(30).keys(), n => n + 1)
 
 export const MyEmail = "dlaghtjd4487@gmail.com"
 export const MyGit = "IMHOSUNG"
