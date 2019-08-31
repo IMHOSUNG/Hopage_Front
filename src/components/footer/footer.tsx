@@ -9,7 +9,7 @@ interface IState{
 
 }
 
-const Header:React.FC<IProps> = () => {
+const Footer:React.FC<IProps> = () => {
 
     return(
             <footer className="w3-container w3-padding-32 w3-dark-grey">
@@ -58,4 +58,4 @@ const Header:React.FC<IProps> = () => {
     )
 }
 
-export default Header; 
+export default Footer; 

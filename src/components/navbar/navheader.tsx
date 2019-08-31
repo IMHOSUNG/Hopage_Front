@@ -23,8 +23,20 @@ const NavHeader:React.FC<IProps> = ({title,subtitle}) => {
             <i className="fa fa-remove"></i>
             </span>
             <img src={DefaultImage} style={{width:"45%"}} className="w3-round" alt="img"/><br/><br/>
+            <div className="w3-right" title="button">
+                    {"IMHOSUNG"}
+            </div>
             <h4><b>{title}</b></h4>
+                <div className="w3-right" title="button">
+                    <span className ="w3-xlarge w3-hover-grey" title="Login" style={{marginRight:"15px"}}>
+                        <i className="fa fa-sign-in"></i>
+                    </span>
+                    <span className ="w3-xlarge w3-hover-grey" title="Logout">
+                        <i className="fa fa-sign-out"></i>
+                    </span>
+                </div>
             <p className="w3-text-grey">{subtitle}</p>
+
         </div>
     )
 }

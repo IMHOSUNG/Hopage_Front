@@ -1,14 +1,14 @@
-import axios from 'axios'
+//import axios from 'axios'
 
 const ApiDomain = "https://jsonplaceholder.typicode.com/"
 const post = "posts/"
 
-export const getPost = (postId:string) => {
-    return axios(ApiDomain+post+postId)
+export const getPost = (postId:string, arg:any) => {
+    return fetch(ApiDomain+post+postId,arg)
 }
 
-export const getComment = (postId:string) =>{
-    return axios(ApiDomain+post+postId+"/comments")
+export const getComment = (postId:string, arg:any) =>{
+    return fetch(ApiDomain+post+postId+"/comments",arg)
 }
 
 export const clog = (description:string) =>{

@@ -105,7 +105,7 @@ const rootReducer= ( state = initialState , action:Actions):IState =>{
         case "INCREASE" :
             return {
                 ...state,
-                CardList : [...state.CardList , ...Array.from(Array(15).keys(), n => n + state.CardList.length + 1)]
+                CardList : [...state.CardList , ...Array.from(Array(12).keys(), n => n + state.CardList.length + 1)]
             };
         default :
             return state;

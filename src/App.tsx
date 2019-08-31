@@ -10,12 +10,21 @@ const App: React.FC = () => {
   //외부접속 didmount 처리
   const dispatch = useDispatch();
   useEffect(()=>{
+      
       const fetchData = async () => {
-          let response = window.location.pathname;
+        let response = window.location.pathname;
           dispatch(changeUrl(response));
       }
+      const back = () => {window.onpopstate = (e) => {
+          let response = window.location.pathname;
+          dispatch(changeUrl(response));
+        }
+      }
+      back();
       fetchData();
-  })  
+  }) 
+  
+  
 
   const RouteList = navCategoryInput.map(({component,url})=>
     ( url === '/') 

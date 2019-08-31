@@ -14,14 +14,20 @@
 - [x] react Redux   > 적용하며 진행 중 > 추후 Redux를 모듈 따라 나누기 필요
 - [x] react Hook
 - [x] react TypeScript > 적용하며 진행 중 > 추후 타입 정보 들을 폴더로 묶기 필요  
+- [x] 로그인 기능 추가 > 백엔드와 연동 시킬 것 
+
+- [ ] 백엔드 > 19-08-31 >fetch 또는 axios 사용법 숙달, Nodejs 시작
+
 - [ ] 최적화 하기
 - [ ] 일렉트론 적용하기
-- [ ] 로그인 기능 추가 > 추가 중 firebase 사용 해 볼 것
 - [ ] 서버 사이드 렌더링 적용
 
 ### 참고 블로그 및 내용 정리
 - react-Router 새로 고침 후 404 오류 수정 (nginx 파일 수정) 
 [참고 링크](https://gkedge.gitbooks.io/react-router-in-the-real/content/index.html)
+- fetch Abort 문제 
+[참고 링크](https://medium.com/@selvaganesh93/how-to-clean-up-subscriptions-in-react-components-using-abortcontroller-72335f19b6f7)
+
 
 ### 홈페이지 주소
 - http://blog.playinfo.co.kr

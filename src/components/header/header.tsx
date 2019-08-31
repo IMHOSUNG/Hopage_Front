@@ -57,9 +57,6 @@ const Header:React.FC<IProps> = () => {
     console.log("header render");
     return(
         <header id="portfolio">
-            <span className="w3-button w3-right" onClick={changeUrl}>
-              <i className="fa fa-bar-chart-o"></i>
-            </span>
             <img src={DefaultImage} style={{width:"65px"}} className="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity" alt="img"/>
             <span className="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onClick={changeUrl}>
               <i className="fa fa-bars"></i>

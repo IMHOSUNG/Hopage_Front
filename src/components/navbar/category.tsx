@@ -19,7 +19,6 @@ interface tCategory{
 }
 
 const CategoryItem:React.FC<Item> = React.memo(({url, name, clicked}) =>{
-
     const dispatch = useDispatch();
     const setUrl = useCallback(()=>dispatch(changeUrl(url)),[dispatch,url]);
 
