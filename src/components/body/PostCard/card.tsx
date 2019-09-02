@@ -28,13 +28,14 @@ const areEqual =(prevProps:CardItem , nextProps:CardItem) => {
 const CardItem:React.FC<CardItem> = React.memo(({thumnail, id}) => {
 
     const [value, setValue] = useState<any>([{ title: '', body : ''}]);
+    const cardList = useSelector(curListSelector,shallowEqual)
     //const [isloading, setLoading] = useState(false);
 
     //if you want to manipulate DOM in the effect, and want to make sure it happens before browser paint, you need to use useLayoutEffect.
     useEffect(() =>{
         const abortController = new AbortController();
         const signal = abortController.signal;
-
+        
         (async()=>{
             try {
                 await getPost(id.toString(),{signal : signal})
@@ -51,7 +52,6 @@ const CardItem:React.FC<CardItem> = React.memo(({thumnail, id}) => {
         })();
         return () => {
             abortController.abort();
-
         }
     },[id])
 

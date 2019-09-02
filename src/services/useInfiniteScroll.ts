@@ -1,11 +1,16 @@
 
 import { useState, useEffect, useCallback } from 'react';
+import {IState} from '../reducers/rootReducer'
+import { useSelector, shallowEqual } from 'react-redux'
 
+const curListSelector = (state:IState) => state.CardList;
 let lastScrollPosition = 0;
 
 const useInfiniteScroll:any = (callback:any)=> {
         
     const [isFetching, setIsFetching] = useState(false);
+    const cardlist = useSelector(curListSelector, shallowEqual);
+
     const handleScroll = useCallback(() => {
         //check direction
         var newScrollPosition = window.scrollY;
@@ -38,11 +43,16 @@ const useInfiniteScroll:any = (callback:any)=> {
           (document.documentElement && document.documentElement.scrollTop) ||
           document.body.scrollTop;
         // 스크롤링 했을때, 브라우저의 가장 밑에서 100정도 높이가 남았을때에 실행하기위함.
-    
-        if (scrollHeight - innerHeight - scrollTop < 100) {
 
-            setIsFetching(true)
+        if(cardlist.length <= 100) {
+            if (scrollHeight - innerHeight - scrollTop < 100) {
+                setIsFetching(true)
+            }
         }
+        else{
+            setIsFetching(false)
+        }
+        
     };
       
     return [isFetching, setIsFetching];

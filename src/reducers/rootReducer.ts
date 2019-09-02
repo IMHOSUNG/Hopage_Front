@@ -54,6 +54,14 @@ const getTitle = (nav:Array<navCategoryItem>,url:string ) => {
     return find.layoutTitle
 }
 
+const setLength = (items:Array<number>) => {
+    if(items.length >= 100-12){
+        return items;
+    }else{
+        return [...items , ...Array.from(Array(12).keys(), n => n + items.length + 1)]
+    }
+}
+
 export const initializeInput = () => ({
     type: INITIALIZE_INPUT
 });
@@ -67,7 +75,7 @@ export const changeInput = ({name, value}:Input ) => ({
 
 export const changeUrl = (url:string) => ({type:"CHANGE_URL", payload: url});
 export const changeNav = (showstate:boolean) => ({type:"CHANGE", payload : !showstate})
-export const fetchCard = () => ({type:"INCREASE" })
+export const fetchCard = () => ({type:"INCREASE"})
 
 const rootReducer= ( state = initialState , action:Actions):IState =>{
     switch(action.type){
@@ -105,7 +113,7 @@ const rootReducer= ( state = initialState , action:Actions):IState =>{
         case "INCREASE" :
             return {
                 ...state,
-                CardList : [...state.CardList , ...Array.from(Array(12).keys(), n => n + state.CardList.length + 1)]
+                CardList : setLength(state.CardList)
             };
         default :
             return state;
